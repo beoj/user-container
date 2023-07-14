@@ -1,0 +1,28 @@
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: beoj
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - beoj
+  
+  user:
+    build: ./user
+    restart: always
+    environment:
+      - DEBUG=True
+    ports:
+      - 80:80
+    networks:
+      - beoj
+
+networks:
+  beoj:
+    driver: bridge
