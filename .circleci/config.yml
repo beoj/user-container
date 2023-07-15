@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  hello-job:
+    resource_class: small
+    docker:
+      - image: cimg/node:17.2.0
+    steps:
+      - checkout
+      - run: echo "hello world"
+
+workflows:
+  my-workflow:
+    jobs:
+      - hello-job
