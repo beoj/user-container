@@ -1,15 +1,20 @@
 version: 2.1
 
 jobs:
-  hello-job:
+  test:
     resource_class: small
     docker:
-      - image: cimg/node:17.2.0
+      - image: cimg/python:3.10.8
     steps:
       - checkout
-      - run: echo "hello world"
+      - run:
+          name: Setup environment
+          command: pip install --upgrade pip && pip install -r ./user/requirements.txt
+      - run:
+          name: Run test
+          command: cd user && python manage.py test
 
 workflows:
-  my-workflow:
+  test-code:
     jobs:
-      - hello-job
+      - test
