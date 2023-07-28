@@ -10,6 +10,11 @@ jobs:
       - run:
           name: Setup environment
           command: pip install --upgrade pip && pip install -r ./user/requirements.txt
+          environment:
+            - HOST=localhost
+            - PORT=27017
+            - USER=admin
+            - PASSWORD=admin
       - run:
           name: Run test
           command: cd user && python manage.py test
