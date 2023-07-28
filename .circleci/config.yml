@@ -6,10 +6,10 @@ jobs:
     docker:
       - image: cimg/python:3.10.8
     environment:
-      HOST=localhost
-      PORT=27017
-      USER=admin
-      PASSWORD=admin
+      HOST: localhost
+      PORT: 27017
+      USER: admin
+      PASSWORD: admin
     steps:
       - checkout
       - run:
