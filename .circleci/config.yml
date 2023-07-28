@@ -5,16 +5,16 @@ jobs:
     resource_class: small
     docker:
       - image: cimg/python:3.10.8
+    environment:
+      HOST=localhost
+      PORT=27017
+      USER=admin
+      PASSWORD=admin
     steps:
       - checkout
       - run:
           name: Setup environment
           command: pip install --upgrade pip && pip install -r ./user/requirements.txt
-          environment:
-            - HOST=localhost
-            - PORT=27017
-            - USER=admin
-            - PASSWORD=admin
       - run:
           name: Run test
           command: cd user && python manage.py test
