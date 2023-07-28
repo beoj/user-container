@@ -18,6 +18,10 @@ services:
     restart: always
     environment:
       - DEBUG=True
+      - HOST=mongo
+      - PORT=27017
+      - USER=admin
+      - PASSWORD=admin
     ports:
       - 80:80
     networks:
