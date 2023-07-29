@@ -15,7 +15,7 @@ db.user.insertOne({
     "point": 123,
     "blog": [],
     "contest_point": 45,
-    "contest_armorial": "silver"
+    "contest_armorial": ["silver"]
 })
 db.user.insertOne({
     "display_name": "vietthongminh",
@@ -34,7 +34,7 @@ db.user.insertOne({
     "point": 65,
     "blog": [],
     "contest_point": 100,
-    "contest_armorial": "gold"
+    "contest_armorial": ["gold"]
 })
 db.user.insertOne({
     "display_name": "toward",
@@ -53,7 +53,7 @@ db.user.insertOne({
     "point": 41,
     "blog": [],
     "contest_point": 10,
-    "contest_armorial": "gold"
+    "contest_armorial": ["gold"]
 })
 db.user.insertOne({
     "display_name": "ricardo",
@@ -72,7 +72,7 @@ db.user.insertOne({
     "point": 54,
     "blog": [],
     "contest_point": 12,
-    "contest_armorial": ""
+    "contest_armorial": []
 })
 db.user.insertOne({
     "display_name": "billy",
@@ -91,7 +91,7 @@ db.user.insertOne({
     "point": 1254,
     "blog": [],
     "contest_point": 0,
-    "contest_armorial": ""
+    "contest_armorial": []
 })
 db.user.insertOne({
     "display_name": "hieupc",
@@ -110,7 +110,7 @@ db.user.insertOne({
     "point": 1,
     "blog": [],
     "contest_point": 27,
-    "contest_armorial": "copper"
+    "contest_armorial": ["copper"]
 })
 db.user.insertOne({
     "display_name": "nguyentai",
@@ -129,5 +129,5 @@ db.user.insertOne({
     "point": 3456,
     "blog": [],
     "contest_point": 999,
-    "contest_armorial": "diamond"
+    "contest_armorial": ["diamond"]
 })
