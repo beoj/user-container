@@ -4,7 +4,7 @@ Xử lí các request
 
 from django.shortcuts import render
 
-from . import mongo
+from . import models
 
 def user(request):
     '''
