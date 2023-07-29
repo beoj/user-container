@@ -1,3 +1,7 @@
+'''
+Xử lý kết nối đến MongoDB
+'''
+
 import pymongo
 import os
 
