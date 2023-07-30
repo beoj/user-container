@@ -14,19 +14,19 @@ class User:
                  realName,
                  email,
                  password,
-                 introduction,
-                 avatar,
-                 dateSignup,
                  banStatus,
-                 report,
-                 comment,
-                 problemAccepted,
-                 submission,
-                 contestJoin,
-                 point,
-                 blog,
-                 contestPoint,
-                 contestArmorial
+                 dateSignup,
+                 introduction = '',
+                 avatar = '',
+                 report = [],
+                 comment = [],
+                 problemAccepted = [],
+                 submission = [],
+                 contestJoin = [],
+                 point = 0,
+                 blog = [],
+                 contestPoint = 0,
+                 contestArmorial = []
                  ):
         self._id = _id
         self.displayName = displayName
