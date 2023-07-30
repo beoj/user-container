@@ -1,25 +1,49 @@
 version: 2.1
 
-jobs:
-  test:
+executors:
+  test-environment:
     resource_class: small
     docker:
       - image: cimg/python:3.10.8
+      - image: mongo:latest
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: admin
+          MONGO_INITDB_ROOT_PASSWORD: admin
+          MONGO_INITDB_DATABASE: beoj
     environment:
       HOST: localhost
       PORT: 27017
       USER: admin
       PASSWORD: admin
+
+
+jobs:
+  test-page-status:
+    executor: test-environment
     steps:
       - checkout
       - run:
           name: Setup environment
           command: pip install --upgrade pip && pip install -r ./user/requirements.txt
       - run:
-          name: Run test
-          command: cd user && python manage.py test
+          name: Run test page status
+          command: cd user && python manage.py test user.test.testPageStatus
+
+  test-models:
+    executor: test-environment
+    steps:
+      - checkout
+      - run:
+          name: Setup environment
+          command: pip install --upgrade pip && pip install -r ./user/requirements.txt
+      - run:
+          name: Run test models
+          command: cd user && python manage.py test user.test.testModels
 
 workflows:
   test-code:
     jobs:
-      - test
+      - test-page-status
+      - test-models:
+          requires:
+            - test-page-status

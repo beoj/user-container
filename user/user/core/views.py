@@ -1,6 +1,16 @@
+'''
+Xử lí các request
+'''
+
 from django.shortcuts import render
 
-from . import mongo
+from . import models
 
 def user(request):
-    return render(request, 'user.html')
+    '''
+    Xử lý request cho /user
+    '''
+    context = {
+
+    }
+    return render(request, 'user.html', context=context)

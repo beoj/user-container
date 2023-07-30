@@ -1,4 +1,9 @@
+'''
+Xử lý kết nối đến MongoDB
+'''
+
 import pymongo
+from bson.objectid import ObjectId
 import os
 
 HOST = os.environ.get('HOST')
