@@ -236,3 +236,24 @@ class User(TestCase):
 
         user = models.User.oneFromDatabase({"email": "asdf@asdf.com"})
         self.assertEqual(user.realName, "Dang Van Asdf")
+
+    def testDeleteUser_1(self):
+        user = models.User.oneFromDatabase({"displayName": "namprozz"})
+        user.deleteFromDatabase()
+
+        user = list(models.User.manyFromDatabase({"displayName": "namprozz"}))
+        self.assertEqual(bool(user), False)
+
+    def testDeleteUser_2(self):
+        user = models.User.oneFromDatabase({"email": "towardlinus@linux.com"})
+        user.deleteFromDatabase()
+
+        user = list(models.User.manyFromDatabase({"email": "towardlinus@linux.com"}))
+        self.assertEqual(bool(user), False)
+
+    def testDeleteUser_3(self):
+        user = models.User.oneFromDatabase({"dateSignup": 1610183104})
+        user.deleteFromDatabase()
+
+        user = list(models.User.manyFromDatabase({"dateSignup": 1610183104}))
+        self.assertEqual(bool(user), False)
