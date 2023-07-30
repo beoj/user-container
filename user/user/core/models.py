@@ -60,6 +60,15 @@ class User:
         else:
             mongo.userTable.insert_one(self.__dict__)
 
+    def deleteFromDatabase(self):
+        '''
+        Xóa Oject trong Database
+
+        Không trả về giá trị
+        '''
+        
+        mongo.userTable.delete_one({'_id': self._id})
+
     @classmethod
     def oneFromDatabase(cls, dictFind):
         '''
