@@ -3,5 +3,11 @@
 {% block title %}User{% endblock %}
 
 {% block content %}
-<p>Hello World</p>
+<div>
+    <ul>
+        {% for user in userArr %}
+        <li>Name:{{ user.displayName }} Point:{{ user.point }}</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

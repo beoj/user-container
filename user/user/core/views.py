@@ -10,7 +10,11 @@ def user(request):
     '''
     Xử lý request cho /user
     '''
-    context = {
 
+    userArr = list(models.User.manyFromDatabase({}))
+    userArr.sort(key=lambda x: x.point)
+
+    context = {
+        "userArr" : userArr,
     }
     return render(request, 'user.html', context=context)
