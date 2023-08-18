@@ -22,7 +22,8 @@ class User(TestCase):
             "point": 123,
             "blog": [],
             "contestPoint": 45,
-            "contestArmorial": ["silver"]
+            "contestArmorial": ["silver"],
+            "session": [],
         })
         mongo.userTable.insert_one({
             "displayName": "vietthongminh",
@@ -41,7 +42,8 @@ class User(TestCase):
             "point": 65,
             "blog": [],
             "contestPoint": 100,
-            "contestArmorial": ["gold"]
+            "contestArmorial": ["gold"],
+            "session": [],
         })
         mongo.userTable.insert_one({
             "displayName": "toward",
@@ -60,7 +62,8 @@ class User(TestCase):
             "point": 41,
             "blog": [],
             "contestPoint": 10,
-            "contestArmorial": ["gold"]
+            "contestArmorial": ["gold"],
+            "session": [],
         })
         mongo.userTable.insert_one({
             "displayName": "ricardo",
@@ -79,7 +82,8 @@ class User(TestCase):
             "point": 54,
             "blog": [],
             "contestPoint": 12,
-            "contestArmorial": []
+            "contestArmorial": [],
+            "session": [],
         })
         mongo.userTable.insert_one({
             "displayName": "billy",
@@ -98,7 +102,8 @@ class User(TestCase):
             "point": 1254,
             "blog": [],
             "contestPoint": 0,
-            "contestArmorial": []
+            "contestArmorial": [],
+            "session": [],
         })
         mongo.userTable.insert_one({
             "displayName": "hieupc",
@@ -117,7 +122,8 @@ class User(TestCase):
             "point": 1,
             "blog": [],
             "contestPoint": 27,
-            "contestArmorial": ["copper"]
+            "contestArmorial": ["copper"],
+            "session": [],
         })
         mongo.userTable.insert_one({
             "displayName": "nguyentai",
@@ -136,7 +142,8 @@ class User(TestCase):
             "point": 3456,
             "blog": [],
             "contestPoint": 999,
-            "contestArmorial": ["diamond"]
+            "contestArmorial": ["diamond"],
+            "session": [],
         })
     
     def tearDown(self):
