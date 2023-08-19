@@ -18,7 +18,7 @@ executors:
 
 
 jobs:
-  test-page-status:
+  test-django:
     executor: test-environment
     steps:
       - checkout
@@ -26,24 +26,10 @@ jobs:
           name: Setup environment
           command: pip install --upgrade pip && pip install -r ./user/requirements.txt
       - run:
-          name: Run test page status
-          command: cd user && python manage.py test user.test.testPageStatus
-
-  test-models:
-    executor: test-environment
-    steps:
-      - checkout
-      - run:
-          name: Setup environment
-          command: pip install --upgrade pip && pip install -r ./user/requirements.txt
-      - run:
-          name: Run test models
-          command: cd user && python manage.py test user.test.testModels
+          name: Run test
+          command: cd user && python manage.py test
 
 workflows:
   test-code:
     jobs:
-      - test-page-status
-      - test-models:
-          requires:
-            - test-page-status
+      - test-django
