@@ -264,3 +264,26 @@ class User(TestCase):
 
         user = list(models.User.manyFromDatabase({"dateSignup": 1610183104}))
         self.assertEqual(bool(user), False)
+
+class getClientIP(TestCase):
+    def testGetClientIP_1(self):
+        response = self.client.get('/user/', REMOTE_ADDR='45.21.69.47')
+        ip = models.getClientIP(response.wsgi_request)
+        self.assertEqual(ip, '45.21.69.47', 'The ip do not match the remote address')
+
+    def testGetClientIP_2(self):
+        response = self.client.get('/user/')
+        ip = models.getClientIP(response.wsgi_request)
+        self.assertEqual(ip, '127.0.0.1', 'The ip do not match the remote address')
+
+class generateKeySession(TestCase):
+    def testKeyLength(self):
+        key = models.generateKeySession()
+        self.assertEqual(len(key), 64, "Length of key is not 64 characters")
+
+    def testKeyExcludedCharacter(self):
+        key = models.generateKeySession()
+        for i in key:
+            if ord(i) in [34, 39, 92, 123, 125, 126]:
+                self.fail("Excluded characters in key")
+        self.assertTrue(True)
