@@ -123,6 +123,20 @@ class User:
         self.updateToDatabase()
         return session["key"]
     
+    def deleteSession(self, key):
+        '''
+        Xóa session bằng key của session đó
+        Sau khi xóa thì tự update vào Database
+
+        Không trả về giá trị
+        '''
+        
+        for i in self.session:
+            if i['key'] == key:
+                self.session.remove(i)
+                break
+        self.updateToDatabase()
+
     @classmethod
     def oneFromDatabase(cls, dictFind):
         '''
