@@ -4,6 +4,16 @@ from user.core import mongo
 from user.core import models
 
 class User(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        mongo.userTable.delete_many({})
+        return super().setUpClass()
+
+    @classmethod
+    def tearDownClass(cls):
+        mongo.userTable.delete_many({})
+        return super().tearDownClass()
+
     def setUp(self):
         mongo.userTable.insert_one({
             "displayName": "namprozz",
