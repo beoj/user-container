@@ -146,7 +146,11 @@ class User:
         Trả về một object từ class User
         '''
 
-        firstUser = dict(mongo.userTable.find(dictFind)[0])
+        try:
+            firstUser = dict(mongo.userTable.find(dictFind)[0])
+        except IndexError as error: # Nếu không có user trong database thì sẽ trả về lỗi
+            raise IndexError("Can't find user match dictFind")
+
         return cls(**firstUser)
 
     @classmethod
