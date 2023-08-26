@@ -174,6 +174,16 @@ class User(TestCase):
     def testPickOneFromDatabase_4(self):
         user = models.User.oneFromDatabase({"displayName": "nguyentai"})
         self.assertEqual(user.email, "taichanh@gmail.com")
+    
+    def testIndexError(self):
+        try:
+            user = models.User.oneFromDatabase({"displayName": "abcd"})
+        except IndexError as error: # Nếu lỗi trả về là IndexError thì đạt chuẩn
+            self.assertTrue(True)
+        except: # Nếu có lỗi khác trả về
+            self.fail("The error does not equal to IndexError")
+        else: # Nếu không có lỗi
+            self.fail("The error does not occurs when the index is not exists")
 
     def testPickManyFromDatabase_1(self):
         arrUser = list(models.User.manyFromDatabase({"contestArmorial": "gold"}))
