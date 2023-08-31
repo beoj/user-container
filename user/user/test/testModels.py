@@ -13,7 +13,6 @@ class User(TestCase):
     def tearDownClass(cls):
         mongo.userTable.delete_many({})
         return super().tearDownClass()
-
     def setUp(self):
         mongo.userTable.insert_one({
             "displayName": "namprozz",
@@ -174,7 +173,7 @@ class User(TestCase):
     def testPickOneFromDatabase_4(self):
         user = models.User.oneFromDatabase({"displayName": "nguyentai"})
         self.assertEqual(user.email, "taichanh@gmail.com")
-    
+
     def testIndexError(self):
         try:
             user = models.User.oneFromDatabase({"displayName": "abcd"})

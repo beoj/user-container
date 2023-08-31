@@ -34,7 +34,6 @@ def generateKeySession():
         key += random.choice(charArr)
 
     return key
-
 class User:
     '''
     Class xử lí dữ liệu User
