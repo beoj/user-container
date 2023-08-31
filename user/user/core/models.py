@@ -28,7 +28,7 @@ def generateKeySession():
     Trả về key dạng string
     '''
 
-    charArr = '!#%&()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz|'
+    charArr = '!#%&()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz|'
     key = ''
     for i in range(64):
         key += random.choice(charArr)
