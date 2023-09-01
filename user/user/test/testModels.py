@@ -304,6 +304,6 @@ class generateKeySession(TestCase):
     def testKeyExcludedCharacter(self):
         key = models.generateKeySession()
         for i in key:
-            if ord(i) in [34, 39, 92, 123, 125, 126]:
+            if ord(i) in [34, 39, 92, 96, 123, 125, 126]:
                 self.fail("Excluded characters in key")
         self.assertTrue(True)
