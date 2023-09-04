@@ -5,5 +5,12 @@
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
     "ghcr.io/devcontainers/features/python:1": {},
     "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "remoteEnv" : {
+    "DEBUG"    : "True",
+    "HOST"     : "localhost",
+    "PORT"     : 27017,
+    "USER"     : "admin",
+    "PASSWORD" : "admin"
   }
 }
