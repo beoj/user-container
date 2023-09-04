@@ -12,5 +12,8 @@
     "PORT"     : 27017,
     "USER"     : "admin",
     "PASSWORD" : "admin"
-  }
+  },
+
+  "dockerComposeFile" : "./docker-compose.yml",
+  "runServices" : "mongo"
 }
